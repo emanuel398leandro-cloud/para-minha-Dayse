@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Para Dayse 💖</title>
+<style>
+  body {
+    background: #0f0f0f;
+    color: #ffb6c1;
+    font-family: monospace;
+    padding: 30px;
+  }
+</style>
+</head>
+<body>
 
+<div id="texto"></div>
+
+<script>
+const carta = [
+"Oi, Dayse... 💖",
+"",
+"Pode parecer meio diferente fazer isso assim,",
+"mas eu queria encontrar um jeito especial de te escrever.",
+"",
+"Enquanto eu montava esse código,",
+"era impossível não pensar em você em cada detalhe.",
+"",
+"Cada linha que eu escrevia,",
+"de alguma forma me lembrava o quanto você tem sido especial pra mim.",
+"",
+"Tem algo em você que é diferente...",
+"no seu jeito, no seu sorriso, na forma como você existe.",
+"",
+"Você chegou de um jeito leve,",
+"e quando percebi, já estava pensando em você mais do que deveria.",
+"",
+"Não sei explicar direito,",
+"mas tudo fica melhor quando você está por perto —",
+"mesmo que seja só em pensamento.",
+"",
+"Gosto da paz que você me traz,",
+"da forma como você ilumina coisas simples.",
+"",
+"E, de alguma forma,",
+"eu só queria que você soubesse disso.",
+"",
+"Com carinho,",
+"alguém que pensou em você até enquanto programava ❤️"
+];
+
+let i = 0;
+let j = 0;
+const speed = 40;
+const el = document.getElementById("texto");
+
+function escrever() {
+  if (i < carta.length) {
+    if (j < carta[i].length) {
+      el.innerHTML += carta[i].charAt(j);
+      j++;
+      setTimeout(escrever, speed);
+    } else {
+      el.innerHTML += "<br>";
+      i++;
+      j = 0;
+      setTimeout(escrever, 500);
+    }
+  } else {
+    animarCoracao();
+  }
+}
+
+function animarCoracao() {
+  const coracao = [
+    "  ❤️   ❤️  ",
+    " ❤️❤️ ❤️❤️ ",
+    "  ❤️❤️❤️  ",
+    "   ❤️❤️   ",
+    "    ❤️    "
+  ];
+
+  let count = 0;
+
+  setInterval(() => {
+    el.innerHTML += "<br><br>";
+    coracao.forEach(l => el.innerHTML += l + "<br>");
+    count++;
+    if (count > 2) location.reload();
+  }, 800);
+}
+
+escrever();
+</script>
+
+</body>
+</html>
